@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="assets/v.png"/>
+    <title>Google Profile</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="screen">
+        <div class="container">
+            <h1>Welcome!</h1>           
+            <h2 id="profileName"></h2>
+            <img id="profilePicture" src="" alt="Profile Picture" class="profile-picture">
+            <p id="profileEmail"></p>
+            <button onclick="logout()">Log Out</button>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2025 Nathan Darius. All rights reserved.
+    </footer>
+
+    <script> 
+        const userData = JSON.parse(localStorage.getItem('user'));
+    
+        if (userData) {
+          
+            document.getElementById('profileName').textContent = userData.name;
+            document.getElementById('profilePicture').src = userData.picture;
+            document.getElementById('profileEmail').textContent = userData.email;
+        }
+    
+        function logout() {
+            localStorage.removeItem('user');
+            window.location.href = 'option.html'; 
+        }
+    </script>
+</body>
+</html>

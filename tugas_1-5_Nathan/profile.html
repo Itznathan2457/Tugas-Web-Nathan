@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="assets/v.png"/>
+    <title>User Profile</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="screen">
+        <div class="container">
+            <h1>Welcome!</h1>
+            <div id="profileContainer">
+               
+            </div>
+            <a href="option.html" class="button signout">Log Out</a>
+        </div>
+    </div>
+
+    <script> 
+
+        const urlParams = new URLSearchParams(window.location.search);
+        const name = urlParams.get('name');
+        const email = urlParams.get('email');
+        const picture = urlParams.get('picture');
+    
+    
+        document.getElementById('profileContainer').innerHTML = `
+            <h2>${name}</h2>
+            <img src="${picture}" alt="Profile Picture" style="width: 100px; border-radius: 50%; margin-top: 10px;">
+            <p>Email: ${email}</p>
+        `;
+    </script>
+    <footer>
+        &copy; 2025 Nathan Darius. All rights reserved.
+    </footer>
+</body>
+</html>
